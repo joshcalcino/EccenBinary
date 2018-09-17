@@ -7,6 +7,7 @@ def get_dump_files(directory):
     dumpfiles = glob(directory)
     new_dumpfiles = []
     for dumpfile in dumpfiles:
+        print(dumpfile)
         if dumpfile[:-2:].isdigit():
             new_dumpfiles.append(dumpfile)
     return new_dumpfiles
@@ -20,8 +21,6 @@ for edir in eccentricity_filenames:
     for bdir in binary_ratio_filenames:
         cdir = os.path.join(edir, bdir, 'gas_only_hr')
         dumpfiles = get_dump_files(cdir)
-        print(dumpfiles)
         for dumpfile in dumpfiles:
-            print(dumpfile)
             dump = pa(dumpfile)
             print(dump.ptmass_xyzmh)

@@ -12,5 +12,6 @@ for edir in eccentricity_filenames:
         cdir = os.path.join(edir, bdir, 'gas_only_hr')
         dumpfiles = glob(cdir)
         for dumpfile in dumpfiles:
+            print(dumpfile)
             dump = pa(dumpfile)
             print(dump.ptmass_xyzmh)

@@ -7,7 +7,7 @@ def get_dump_files(directory):
     dumpfiles = glob(directory)
     new_dumpfiles = []
     for dumpfile in dumpfiles:
-        print(dumpfile)
+        # print(dumpfile)
         if dumpfile[:-2:].isdigit():
             new_dumpfiles.append(dumpfile)
     return new_dumpfiles
@@ -24,3 +24,4 @@ for edir in eccentricity_filenames:
         for dumpfile in dumpfiles:
             dump = pa(dumpfile)
             print(dump.ptmass_xyzmh)
+            print(dump.npart)

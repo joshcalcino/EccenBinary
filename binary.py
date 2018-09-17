@@ -7,7 +7,7 @@ def get_dump_files(directory):
     dumpfiles = glob(directory)
     new_dumpfiles = []
     for dumpfile in dumpfiles:
-        print(dumpfile[:-1].isdigit())
+        print(dumpfile[:-1])
         if dumpfile[:-1].isdigit():
             new_dumpfiles.append(dumpfile)
     return new_dumpfiles

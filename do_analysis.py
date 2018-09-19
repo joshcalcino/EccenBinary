@@ -18,8 +18,8 @@ for edir in eccentricity_filenames:
                                 universal_newlines=True, shell=True)
 
         print(output)
-        #output = subprocess.check_output('./phantomanalysis gas_only_hr_0*', stderr=subprocess.STDOUT,
-        #                        universal_newlines=True, shell=True)
+        output = subprocess.check_output('./phantomanalysis gas_only_hr_0*', stderr=subprocess.STDOUT,
+                               universal_newlines=True, shell=True)
         print(output)
         sink1 = numpy.genfromtxt('sinkpositions_1.dat', dtype=None)
         sink2 = numpy.genfromtxt('sinkpositions_2.dat')
@@ -54,8 +54,11 @@ for edir in eccentricity_filenames:
         # product = xyzc @ xyzs
         print(numpy.min(product))
         print(numpy.max(product))
-        print(numpy.argmin(product))
-        print(numpy.argmax(product))
+        print(dumpfile[int(numpy.argmin(product))])
+        print(dumpfile[int(numpy.argmax(product))])
+        with open('aphelion_perihelion.txt', 'w') as f:
+            f.write('aphelion in file ' + dumpfile[int(numpy.argmin(product))] + '\n')
+            f.write('perihelion in file ' + dumpfile[int(numpy.argmax(product))] + '\n')
         # print(sink1[:][2])
         os.chdir('../../../')
-        exit()
+        # exit()

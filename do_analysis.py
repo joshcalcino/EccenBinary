@@ -44,7 +44,7 @@ for edir in eccentricity_filenames:
             zc.append(sink2[i][3])
 
         xyzs = numpy.array([[xs], [ys], [zs]])
-        xyzc = numpy.array([[xc], [yc], [zc])
+        xyzc = numpy.array([[xc], [yc], [zc]])
         product = xyzc @ xyzs
         print(numpy.min(xyzc @ xyzs))
         print(numpy.max(xyzc @ xyzs))

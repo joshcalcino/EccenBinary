@@ -35,13 +35,13 @@ for edir in eccentricity_filenames:
 
         for i in range(0, len(sink1)):
             dumpfile.append(sink1[i][0])
-            xs.append(sink1[i][1])
-            ys.append(sink1[i][2])
-            zs.append(sink1[i][3])
+            xs.append(sink1[i][2])
+            ys.append(sink1[i][3])
+            zs.append(sink1[i][4])
 
-            xc.append(sink2[i][1])
-            yc.append(sink2[i][2])
-            zc.append(sink2[i][3])
+            xc.append(sink2[i][2])
+            yc.append(sink2[i][3])
+            zc.append(sink2[i][4])
 
         xyzs = numpy.array([xs, ys, zs])
         xyzc = numpy.array([xc, yc, zc])

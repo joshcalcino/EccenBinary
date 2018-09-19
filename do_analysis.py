@@ -24,4 +24,5 @@ for edir in eccentricity_filenames:
         sink1 = numpy.array(numpy.genfromtxt('sinkpositions_1.dat', dtype=None))
         sink2 = numpy.genfromtxt('sinkpositions_2.dat')
         print(sink1)
+        print(sink1[1])
         os.chdir('../../../')

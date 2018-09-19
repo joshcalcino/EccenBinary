@@ -43,8 +43,8 @@ for edir in eccentricity_filenames:
             yc.append(sink2[i][2])
             zc.append(sink2[i][3])
 
-        xyzs = numpy.array([[xs], [ys], [zs]])
-        xyzc = numpy.array([[xc], [yc], [zc]])
+        xyzs = numpy.array([xs, ys, zs])
+        xyzc = numpy.array([xc, yc, zc])
         print(xyzs)
         product = xyzc @ xyzs
         print(numpy.min(xyzc @ xyzs))

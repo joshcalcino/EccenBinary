@@ -55,6 +55,7 @@ for edir in eccentricity_filenames:
         print(numpy.min(product))
         print(numpy.max(product))
         print(numpy.argmin(product))
+        print(numpy.argmax(product))
         # print(sink1[:][2])
         os.chdir('../../../')
         exit()

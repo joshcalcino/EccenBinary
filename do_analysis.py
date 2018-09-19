@@ -45,10 +45,10 @@ for edir in eccentricity_filenames:
 
         xyzs = numpy.array([xs, ys, zs])
         xyzc = numpy.array([xc, yc, zc])
-        product = xyzc * xyzs
-        print(numpy.min(xyzc * xyzs))
-        print(numpy.max(xyzc * xyzs))
-        print(dumpfile[numpy.argmin(product)])
+        product = xyzc @ xyzs
+        print(numpy.min(xyzc @ xyzs))
+        print(numpy.max(xyzc @ xyzs))
+        print(numpy.argmin(product))
         # print(sink1[:][2])
         os.chdir('../../../')
         exit()

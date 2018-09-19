@@ -24,6 +24,31 @@ for edir in eccentricity_filenames:
         sink1 = numpy.genfromtxt('sinkpositions_1.dat', dtype=None)
         sink2 = numpy.genfromtxt('sinkpositions_2.dat')
         print(sink1)
-        print(sink1[:][2])
+        dumpfile = []
+        xs = []
+        ys = []
+        zs = []
+
+        xc = []
+        yc = []
+        zc = []
+
+        for i in range(0, len(sink1)):
+            dumpfile.append(sink1[i][0])
+            xs.append(sink1[i][1])
+            ys.append(sink1[i][2])
+            zs.append(sink1[i][3])
+
+            xc.append(sink2[i][1])
+            yc.append(sink2[i][2])
+            zc.append(sink2[i][3])
+
+        xyzs = numpy.array([xs, ys, zs])
+        xyzc = numpy.array([xc, yc, zc])
+        product = xyzc * xyzs
+        print(numpy.min(xyzc * xyzs))
+        print(numpy.max(xyzc * xyzs))
+        print(dumpfile[numpy.argmin(product)])
+        # print(sink1[:][2])
         os.chdir('../../../')
         exit()

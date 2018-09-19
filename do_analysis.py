@@ -57,8 +57,8 @@ for edir in eccentricity_filenames:
         print(dumpfile[int(numpy.argmin(product))])
         print(dumpfile[int(numpy.argmax(product))])
         with open('aphelion_perihelion.txt', 'w') as f:
-            f.write('aphelion in file ' + dumpfile[int(numpy.argmin(product))] + '\n')
-            f.write('perihelion in file ' + dumpfile[int(numpy.argmax(product))] + '\n')
+            f.write('aphelion in file ' + str(dumpfile[int(numpy.argmin(product))]) + '\n')
+            f.write('perihelion in file ' + str(dumpfile[int(numpy.argmax(product))]) + '\n')
         # print(sink1[:][2])
         os.chdir('../../../')
         # exit()

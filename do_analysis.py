@@ -15,9 +15,12 @@ for edir in eccentricity_filenames:
         output = subprocess.check_output('cd ' + cdir, stderr=subprocess.STDOUT,
                                 universal_newlines=True, shell=True)
         print(output)
-        output = subprocess.check_output('./phantomanalysis gas_only_hr_0*' + cdir, stderr=subprocess.STDOUT,
+        output = subprocess.check_output('./phantomanalysis gas_only_hr_0*', stderr=subprocess.STDOUT,
                                 universal_newlines=True, shell=True)
         print(output)
         sink1 = numpy.genfromtxt(cdir+'sinkpositions_1.dat')
         sink2 = numpy.genfromtxt(cdir+'sinkpositions_2.dat')
         print(sink1)
+        output=subprocess.check_output('cd ../../', stderr=subprocess.STDOUT,
+                                universal_newlines=True, shell=True)
+        print(output)

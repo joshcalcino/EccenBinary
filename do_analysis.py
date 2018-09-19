@@ -14,6 +14,7 @@ for edir in eccentricity_filenames:
         print(output)
         output = subprocess.check_output('cd ' + cdir, stderr=subprocess.STDOUT,
                                 universal_newlines=True, shell=True)
+        print('cd ' + cdir)
         print(output)
         output = subprocess.check_output('ls', stderr=subprocess.STDOUT,
                                 universal_newlines=True, shell=True)

@@ -12,10 +12,8 @@ for edir in eccentricity_filenames:
         output=subprocess.check_output('cp phantomanalysis ' + cdir, stderr=subprocess.STDOUT,
                                 universal_newlines=True, shell=True)
         print(output)
-        output = subprocess.check_output('cd ' + cdir, stderr=subprocess.STDOUT,
-                                universal_newlines=True, shell=True)
+        os.chdir(cdir)
         print('cd ' + cdir)
-        print(output)
         output = subprocess.check_output('ls', stderr=subprocess.STDOUT,
                                 universal_newlines=True, shell=True)
         print(output)

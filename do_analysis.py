@@ -23,7 +23,7 @@ for edir in eccentricity_filenames:
         print(output)
         sink1 = numpy.genfromtxt('sinkpositions_1.dat', dtype=None)
         sink2 = numpy.genfromtxt('sinkpositions_2.dat')
-        print(sink1)
+        # print(sink1)
         dumpfile = []
         xs = []
         ys = []
@@ -45,6 +45,7 @@ for edir in eccentricity_filenames:
 
         xyzs = numpy.array([[xs], [ys], [zs]])
         xyzc = numpy.array([[xc], [yc], [zc]])
+        print(xyzs)
         product = xyzc @ xyzs
         print(numpy.min(xyzc @ xyzs))
         print(numpy.max(xyzc @ xyzs))

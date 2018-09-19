@@ -8,7 +8,7 @@ binary_ratio_filenames = ['br_0010', 'br_0050', 'br_0100']
 
 for edir in eccentricity_filenames:
     for bdir in binary_ratio_filenames:
-        cdir = os.path.join(edir, bdir, 'gas_only_hr/*')
+        cdir = os.path.join(edir, bdir, 'gas_only_hr/')
         subprocess.check_output('cp phantomanalysis ' + cdir, stderr=subprocess.STDOUT,
                                 universal_newlines=True, shell=True)
         subprocess.check_output('cd ' + cdir, stderr=subprocess.STDOUT,

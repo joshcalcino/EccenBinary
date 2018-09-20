@@ -81,7 +81,7 @@ for edir in eccentricity_filenames:
                     file_lines.append(line)
 
         with open('run2.pbs', 'w') as f:
-            for line in f:
+            for line in file_lines:
                 print(line)
                 f.write(line)
 

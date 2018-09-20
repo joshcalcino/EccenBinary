@@ -47,14 +47,20 @@ for edir in eccentricity_filenames:
 
         print(output)
 
-        subprocess.call('cp ../' + aph_file + ' aph/')
-        subprocess.call('cp ../' + per_file + ' per/')
+        subprocess.check_output('cp ../' + aph_file + ' aph/', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
+        subprocess.check_output('cp ../' + per_file + ' per/', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
 
-        subprocess.call('cp ../../../../ref3.0.para aph/')
-        subprocess.call('cp ../../../../ref3.0.para per/')
+        subprocess.check_output('cp ../../../../ref3.0.para aph/', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
+        subprocess.check_output('cp ../../../../ref3.0.para per/', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
 
-        subprocess.call('cp ../../../../run.pbs aph/')
-        subprocess.call('cp ../../../../run.pbs per/')
+        subprocess.check_output('cp ../../../../run.pbs aph/', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
+        subprocess.check_output('cp ../../../../run.pbs per/', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
 
         os.chdir('aph')
         file_lines = []
@@ -70,7 +76,8 @@ for edir in eccentricity_filenames:
         with open('run.pbs', 'w') as f:
             f.writelines(file_lines)
 
-        subprocess.call('qsub run.pbs')
+        subprocess.check_output('qsub run.pbs', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
 
         os.chdir('../per')
         file_lines = []
@@ -86,7 +93,8 @@ for edir in eccentricity_filenames:
         with open('run.pbs', 'w') as f:
             f.writelines(file_lines)
 
-        subprocess.call('qsub run.pbs')
+        subprocess.check_output('qsub run.pbs', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
 
         os.chdir('../../../../../')
         # exit()

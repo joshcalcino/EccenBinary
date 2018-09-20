@@ -23,9 +23,9 @@ for edir in eccentricity_filenames:
         with open('aphelion_perihelion.txt', 'r') as f:
             for i, line in enumerate(f):
                 if i == 0:
-                    aph_file = line[skip_aph:-1]
+                    aph_file = line[skip_aph:-2]
                 elif i == 1:
-                    per_file = line[skip_per:-1]
+                    per_file = line[skip_per:-2]
 
         os.chdir('mcfost')
         os.mkdir('aph')

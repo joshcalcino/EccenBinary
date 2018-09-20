@@ -99,13 +99,18 @@ for edir in eccentricity_filenames:
         file_lines = []
         with open('run.pbs', 'r') as rf:
             for i, line in enumerate(rf):
+                print(i)
                 if i == 16:
+                    print('i = 16')
                     file_lines.append(''.join([line.strip(), ' ' + str(output)]))
                 elif i == 18:
+                    print('i = 18')
                     file_lines.append(''.join([line.strip(), ' ' + per_file]))
                 elif i == 19:
+                    print('i = 19')
                     file_lines.append(''.join([line.strip(), ' ' + per_file]))
                 else:
+                    print('i don\'t care')
                     file_lines.append(line)
 
         with open('run.pbs', 'w') as f:

@@ -100,6 +100,7 @@ for edir in eccentricity_filenames:
         with open('run.pbs', 'r') as rf:
             for i, line in enumerate(rf):
                 print(i)
+                print(file_lines)
                 if i == 16:
                     print('i = 16')
                     file_lines.append(''.join([line.strip(), ' ' + str(output), '\n']))
@@ -113,6 +114,7 @@ for edir in eccentricity_filenames:
                     print('i don\'t care')
                     file_lines.append(line)
 
+        print(file_lines)
         with open('run.pbs', 'w') as f:
             f.writelines(file_lines)
 

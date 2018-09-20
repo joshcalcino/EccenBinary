@@ -64,18 +64,18 @@ for edir in eccentricity_filenames:
 
         os.chdir('aph')
 
-        output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
+        output = subprocess.check_output('rm -r data_*', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
         # print(output)
 
         file_lines = []
         with open('run.pbs', 'r') as rf:
             for i, line in enumerate(rf):
-                if i == 16:
+                if i == 18:
                     file_lines.append(''.join([line.strip(), ' ' + str(output)]))
-                elif i == 18:
+                elif i == 20:
                     file_lines.append(''.join([line.strip(), ' ' + aph_file, '\n']))
-                elif i == 19:
+                elif i == 21:
                     file_lines.append(''.join([line.strip(), ' ' + aph_file, '\n']))
                 else:
                     file_lines.append(line)
@@ -94,7 +94,7 @@ for edir in eccentricity_filenames:
         # print(output)
 
         os.chdir('../per')
-        output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
+        output = subprocess.check_output('rm -r data_*', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
         # print(output)
 
@@ -103,13 +103,13 @@ for edir in eccentricity_filenames:
             for i, line in enumerate(rf):
                 print(i)
                 # print(file_lines)
-                if i == 16:
+                if i == 18:
                     print('i = 16')
                     file_lines.append(''.join([line.strip(), ' ' + str(output)]))
-                elif i == 18:
+                elif i == 20:
                     print('i = 18')
                     file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
-                elif i == 19:
+                elif i == 21:
                     print('i = 19')
                     file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
                 else:

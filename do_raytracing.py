@@ -76,7 +76,7 @@ for edir in eccentricity_filenames:
         with open('run.pbs', 'w') as f:
             f.writelines(file_lines)
 
-        subprocess.check_output('pwd', stderr=subprocess.STDOUT,
+        output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
         print(output)
 
@@ -85,6 +85,10 @@ for edir in eccentricity_filenames:
         print(output)
 
         os.chdir('../per')
+        output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
+        print(output)
+
         file_lines = []
         with open('run.pbs', 'r') as rf:
             for i, line in enumerate(rf):

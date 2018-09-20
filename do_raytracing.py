@@ -81,7 +81,9 @@ for edir in eccentricity_filenames:
                     file_lines.append(line)
 
         with open('run2.pbs', 'w') as f:
-            f.writelines(file_lines)
+            for line in f:
+                print(line)
+                f.write(line)
 
         output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)

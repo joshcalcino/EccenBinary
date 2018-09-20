@@ -85,7 +85,7 @@ for edir in eccentricity_filenames:
             for i, line in enumerate(rf):
                 if i == 16:
                     file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
-                if i == 17:
+                elif i == 17:
                     file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
                 else:
                     file_lines.append(line)

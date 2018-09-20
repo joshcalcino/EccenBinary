@@ -63,12 +63,19 @@ for edir in eccentricity_filenames:
                                          universal_newlines=True, shell=True)
 
         os.chdir('aph')
+
+        output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
+        print(output)
+
         file_lines = []
         with open('run.pbs', 'r') as rf:
             for i, line in enumerate(rf):
                 if i == 16:
+                    file_lines.append(''.join([line.strip(), ' ' + str(output), '\n']))
+                elif i == 17:
                     file_lines.append(''.join([line.strip(), ' ' + aph_file, '\n']))
-                if i == 17:
+                if i == 18:
                     file_lines.append(''.join([line.strip(), ' ' + aph_file, '\n']))
                 else:
                     file_lines.append(line)
@@ -93,8 +100,10 @@ for edir in eccentricity_filenames:
         with open('run.pbs', 'r') as rf:
             for i, line in enumerate(rf):
                 if i == 16:
-                    file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
+                    file_lines.append(''.join([line.strip(), ' ' + str(output), '\n']))
                 elif i == 17:
+                    file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
+                elif i == 18:
                     file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
                 else:
                     file_lines.append(line)

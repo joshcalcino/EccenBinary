@@ -42,6 +42,11 @@ for edir in eccentricity_filenames:
         else:
             os.mkdir('per')
 
+        output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
+
+        print(output)
+
         subprocess.call('cp ../' + aph_file + ' aph/')
         subprocess.call('cp ../' + per_file + ' per/')
 

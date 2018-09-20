@@ -72,11 +72,11 @@ for edir in eccentricity_filenames:
         with open('run.pbs', 'r') as rf:
             for i, line in enumerate(rf):
                 if i == 16:
-                    file_lines.append(''.join([line.strip(), ' ' + str(output), '\n']))
+                    file_lines.append(''.join([line.strip(), ' ' + str(output)]))
                 elif i == 18:
-                    file_lines.append(''.join([line.strip(), ' ' + aph_file, '\n']))
+                    file_lines.append(''.join([line.strip(), ' ' + aph_file]))
                 if i == 19:
-                    file_lines.append(''.join([line.strip(), ' ' + aph_file, '\n']))
+                    file_lines.append(''.join([line.strip(), ' ' + aph_file]))
                 else:
                     file_lines.append(line)
 
@@ -100,11 +100,11 @@ for edir in eccentricity_filenames:
         with open('run.pbs', 'r') as rf:
             for i, line in enumerate(rf):
                 if i == 16:
-                    file_lines.append(''.join([line.strip(), ' ' + str(output), '\n']))
+                    file_lines.append(''.join([line.strip(), ' ' + str(output)]))
                 elif i == 18:
-                    file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
+                    file_lines.append(''.join([line.strip(), ' ' + per_file]))
                 elif i == 19:
-                    file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
+                    file_lines.append(''.join([line.strip(), ' ' + per_file]))
                 else:
                     file_lines.append(line)
 

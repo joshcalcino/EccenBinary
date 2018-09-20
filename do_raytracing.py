@@ -80,7 +80,7 @@ for edir in eccentricity_filenames:
                                          universal_newlines=True, shell=True)
         print(output)
 
-        subprocess.check_output('qsub run.pbs', stderr=subprocess.STDOUT,
+        output = subprocess.check_output('qsub run.pbs', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
         print(output)
 

@@ -45,7 +45,7 @@ for edir in eccentricity_filenames:
         output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
 
-        print(output)
+        # print(output)
 
         subprocess.check_output('cp ../' + aph_file + ' aph/', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
@@ -66,7 +66,7 @@ for edir in eccentricity_filenames:
 
         output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
-        print(output)
+        # print(output)
 
         file_lines = []
         with open('run.pbs', 'r') as rf:
@@ -85,16 +85,16 @@ for edir in eccentricity_filenames:
 
         output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
-        print(output)
+        # print(output)
 
         output = subprocess.check_output('qsub run.pbs', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
-        print(output)
+        # print(output)
 
         os.chdir('../per')
         output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
-        print(output)
+        # print(output)
 
         file_lines = []
         with open('run.pbs', 'r') as rf:

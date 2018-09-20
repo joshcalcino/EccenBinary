@@ -13,7 +13,10 @@ for edir in eccentricity_filenames:
         os.chdir(cdir)
         print('cd ' + cdir)
 
-        os.mkdir('mcfost')
+        if os.path.exists('mcfost'):
+            pass
+        else:
+            os.mkdir('mcfost')
 
         skip_aph = len('aphelion in file b\'')
         skip_per = len('perihelion in file b\'')
@@ -28,8 +31,16 @@ for edir in eccentricity_filenames:
                     per_file = line[skip_per:-2]
 
         os.chdir('mcfost')
-        os.mkdir('aph')
-        os.mkdir('per')
+
+        if os.path.exists('aph'):
+            pass
+        else:
+            os.mkdir('aph')
+
+        if os.path.exists('per'):
+            pass
+        else:
+            os.mkdir('per')
 
         subprocess.call('cp ../' + aph_file + ' aph/')
         subprocess.call('cp ../' + per_file + ' per/')

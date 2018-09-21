@@ -43,8 +43,6 @@ for edir in eccentricity_filenames:
             os.mkdir('per')
 
         if os.path.exists('data_th'):
-            pass
-        else:
             output = subprocess.check_output('rm -r data_*', stderr=subprocess.STDOUT,
                                              universal_newlines=True, shell=True)
 
@@ -68,11 +66,6 @@ for edir in eccentricity_filenames:
         os.chdir('aph')
 
         if os.path.exists('data_th'):
-            output = subprocess.check_output('ls', stderr=subprocess.STDOUT,
-                                    universal_newlines=True, shell=True)
-            print(output)
-            pass
-        else:
             output = subprocess.check_output('rm -r data_*', stderr=subprocess.STDOUT,
                                              universal_newlines=True, shell=True)
         # print(output)

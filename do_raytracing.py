@@ -66,10 +66,11 @@ for edir in eccentricity_filenames:
         os.chdir('aph')
 
         if os.path.exists('data_th'):
-            output = subprocess.check_output('rm -r data_*', stderr=subprocess.STDOUT,
-                                             universal_newlines=True, shell=True)
-        # print(output)
+            subprocess.check_output('rm -r data_*', stderr=subprocess.STDOUT,
+                                    universal_newlines=True, shell=True)
 
+        output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
         file_lines = []
         with open('run.pbs', 'r') as rf:
             for i, line in enumerate(rf):
@@ -87,18 +88,19 @@ for edir in eccentricity_filenames:
                 # print(line)
                 f.write(line)
 
-        output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
-                                         universal_newlines=True, shell=True)
         # print(output)
 
         output = subprocess.check_output('qsub run2.pbs', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
-        # print(output)
+        print(output)
 
         os.chdir('../per')
-        output = subprocess.check_output('rm -r data_*', stderr=subprocess.STDOUT,
+        if os.path.exists('data_th'):
+            subprocess.check_output('rm -r data_*', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
         # print(output)
+        output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
+                                         universal_newlines=True, shell=True)
 
         file_lines = []
         with open('run.pbs', 'r') as rf:

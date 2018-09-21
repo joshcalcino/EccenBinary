@@ -42,8 +42,11 @@ for edir in eccentricity_filenames:
         else:
             os.mkdir('per')
 
-        output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
-                                         universal_newlines=True, shell=True)
+        if os.path.exists('data_th'):
+            pass
+        else:
+            output = subprocess.check_output('rm -r data_*', stderr=subprocess.STDOUT,
+                                             universal_newlines=True, shell=True)
 
         # print(output)
 
@@ -64,8 +67,14 @@ for edir in eccentricity_filenames:
 
         os.chdir('aph')
 
-        output = subprocess.check_output('rm -r data_*', stderr=subprocess.STDOUT,
-                                         universal_newlines=True, shell=True)
+        if os.path.exists('data_th'):
+            output = subprocess.check_output('ls', stderr=subprocess.STDOUT,
+                                    universal_newlines=True, shell=True)
+            print(output)
+            pass
+        else:
+            output = subprocess.check_output('rm -r data_*', stderr=subprocess.STDOUT,
+                                             universal_newlines=True, shell=True)
         # print(output)
 
         file_lines = []
@@ -79,10 +88,10 @@ for edir in eccentricity_filenames:
                     file_lines.append(''.join([line.strip(), ' ' + aph_file, '\n']))
                 else:
                     file_lines.append(line)
-        print(file_lines)
+        # print(file_lines)
         with open('run2.pbs', 'w') as f:
             for line in file_lines:
-                print(line)
+                # print(line)
                 f.write(line)
 
         output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
@@ -104,19 +113,19 @@ for edir in eccentricity_filenames:
                 print(i)
                 # print(file_lines)
                 if i == 18:
-                    print('i = 16')
+                    # print('i = 16')
                     file_lines.append(''.join([line.strip(), ' ' + str(output)]))
                 elif i == 20:
-                    print('i = 18')
+                    # print('i = 18')
                     file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
                 elif i == 21:
-                    print('i = 19')
+                    # print('i = 19')
                     file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
                 else:
-                    print('i don\'t care')
+                    # print('i don\'t care')
                     file_lines.append(line)
 
-        print(file_lines)
+        # print(file_lines)
         with open('run2.pbs', 'w') as f:
             f.writelines(file_lines)
 

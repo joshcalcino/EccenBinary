@@ -58,9 +58,9 @@ for edir in eccentricity_filenames:
         subprocess.check_output('cp ../../../../ref3.0.para per/', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
 
-        subprocess.check_output('cp ../../../../run.pbs aph/', stderr=subprocess.STDOUT,
+        subprocess.check_output('cp ../../../../run.qscript aph/', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
-        subprocess.check_output('cp ../../../../run.pbs per/', stderr=subprocess.STDOUT,
+        subprocess.check_output('cp ../../../../run.qscript per/', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
 
         os.chdir('aph')
@@ -72,7 +72,7 @@ for edir in eccentricity_filenames:
         output = subprocess.check_output('pwd', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
         file_lines = []
-        with open('run.pbs', 'r') as rf:
+        with open('run.qscript', 'r') as rf:
             for i, line in enumerate(rf):
                 #if i == 12:
                 #    file_lines.append(''.join([line.strip(), ' ' + str(output)]))
@@ -83,14 +83,14 @@ for edir in eccentricity_filenames:
                 else:
                     file_lines.append(line)
         # print(file_lines)
-        with open('run2.pbs', 'w') as f:
+        with open('run2.qscript', 'w') as f:
             for line in file_lines:
                 # print(line)
                 f.write(line)
 
         # print(output)
 
-        output = subprocess.check_output('sbatch run2.pbs', stderr=subprocess.STDOUT,
+        output = subprocess.check_output('sbatch run2.qscript', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
         print(output)
 
@@ -103,7 +103,7 @@ for edir in eccentricity_filenames:
                                          universal_newlines=True, shell=True)
 
         file_lines = []
-        with open('run.pbs', 'r') as rf:
+        with open('run.qscript', 'r') as rf:
             for i, line in enumerate(rf):
                 print(i)
                 # print(file_lines)
@@ -120,10 +120,10 @@ for edir in eccentricity_filenames:
                     file_lines.append(line)
 
         # print(file_lines)
-        with open('run2.pbs', 'w') as f:
+        with open('run2.qscript', 'w') as f:
             f.writelines(file_lines)
 
-        subprocess.check_output('sbatch run2.pbs', stderr=subprocess.STDOUT,
+        subprocess.check_output('sbatch run2.qscript', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
 
         os.chdir('../../../../../')

@@ -74,9 +74,9 @@ for edir in eccentricity_filenames:
         file_lines = []
         with open('run.pbs', 'r') as rf:
             for i, line in enumerate(rf):
-                if i == 12:
-                    file_lines.append(''.join([line.strip(), ' ' + str(output)]))
-                elif i == 14:
+                #if i == 12:
+                #    file_lines.append(''.join([line.strip(), ' ' + str(output)]))
+                if i == 14:
                     file_lines.append(''.join([line.strip(), ' ' + aph_file, '\n']))
                 elif i == 15:
                     file_lines.append(''.join([line.strip(), ' ' + aph_file, '\n']))
@@ -107,10 +107,9 @@ for edir in eccentricity_filenames:
             for i, line in enumerate(rf):
                 print(i)
                 # print(file_lines)
-                if i == 12:
-                    # print('i = 16')
-                    file_lines.append(''.join([line.strip(), ' ' + str(output)]))
-                elif i == 14:
+                # if i == 12:
+                #    file_lines.append(''.join([line.strip(), ' ' + str(output)]))
+                if i == 14:
                     # print('i = 18')
                     file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
                 elif i == 15:

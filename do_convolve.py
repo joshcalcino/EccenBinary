@@ -2,7 +2,7 @@ import subprocess
 import os
 
 
-eccentricity_filenames = ['eccen0', 'eccen02a', 'eccen03a', 'eccen04a', 'eccen05a', 'eccen06a'] # 'eccen01a',
+eccentricity_filenames = ['eccen0', 'eccen02a', 'eccen03a', 'eccen05a', 'eccen06a'] # 'eccen01a', 'eccen04a',
 
 binary_ratio_filenames = ['br_0010']
 

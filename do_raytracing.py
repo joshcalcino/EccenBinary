@@ -74,11 +74,11 @@ for edir in eccentricity_filenames:
         file_lines = []
         with open('run.pbs', 'r') as rf:
             for i, line in enumerate(rf):
-                if i == 18:
+                if i == 12:
                     file_lines.append(''.join([line.strip(), ' ' + str(output)]))
-                elif i == 20:
+                elif i == 14:
                     file_lines.append(''.join([line.strip(), ' ' + aph_file, '\n']))
-                elif i == 21:
+                elif i == 15:
                     file_lines.append(''.join([line.strip(), ' ' + aph_file, '\n']))
                 else:
                     file_lines.append(line)
@@ -90,7 +90,7 @@ for edir in eccentricity_filenames:
 
         # print(output)
 
-        output = subprocess.check_output('qsub run2.pbs', stderr=subprocess.STDOUT,
+        output = subprocess.check_output('sbatch run2.pbs', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
         print(output)
 
@@ -107,13 +107,13 @@ for edir in eccentricity_filenames:
             for i, line in enumerate(rf):
                 print(i)
                 # print(file_lines)
-                if i == 18:
+                if i == 12:
                     # print('i = 16')
                     file_lines.append(''.join([line.strip(), ' ' + str(output)]))
-                elif i == 20:
+                elif i == 14:
                     # print('i = 18')
                     file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
-                elif i == 21:
+                elif i == 15:
                     # print('i = 19')
                     file_lines.append(''.join([line.strip(), ' ' + per_file, '\n']))
                 else:
@@ -124,7 +124,7 @@ for edir in eccentricity_filenames:
         with open('run2.pbs', 'w') as f:
             f.writelines(file_lines)
 
-        subprocess.check_output('qsub run2.pbs', stderr=subprocess.STDOUT,
+        subprocess.check_output('sbatch run2.pbs', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
 
         os.chdir('../../../../../')

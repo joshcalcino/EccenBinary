@@ -4,7 +4,7 @@ import numpy
 
 eccentricity_filenames = ['eccen0', 'eccen01a', 'eccen02a', 'eccen03a', 'eccen04a', 'eccen05a', 'eccen06a']
 
-binary_ratio_filenames = ['br_0010', 'br_0050', 'br_0100']
+binary_ratio_filenames = ['br_0010']
 
 for edir in eccentricity_filenames:
     for bdir in binary_ratio_filenames:

@@ -123,8 +123,10 @@ for edir in eccentricity_filenames:
         with open('run2.qscript', 'w') as f:
             f.writelines(file_lines)
 
-        subprocess.check_output('sbatch run2.qscript', stderr=subprocess.STDOUT,
+        output = subprocess.check_output('sbatch run2.qscript', stderr=subprocess.STDOUT,
                                          universal_newlines=True, shell=True)
+
+        print(output)
 
         os.chdir('../../../../../')
         # exit()

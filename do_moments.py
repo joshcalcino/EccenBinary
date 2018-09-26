@@ -52,7 +52,7 @@ if __name__ == "__main__":
     v_max = 8.
     vs = np.linspace(-v_max, v_max, image.shape[0])
 
-    moment_1 = simps(image, vs, axis=1)
+    moment_1 = simps(image, vs, axis=0)
 
     # for i in range(0, image.shape[0]):
     #     moment_1 += image[i, :, :]*vs[i]

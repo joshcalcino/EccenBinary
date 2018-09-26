@@ -1,6 +1,7 @@
 from scipy.ndimage.filters import gaussian_filter
 import numpy as np
 from astropy.io import fits
+from scipy.integrate import simps
 import matplotlib as mpl
 mpl.use('Agg')
 import argparse
@@ -47,13 +48,15 @@ if __name__ == "__main__":
     print(image.shape)
     image = image[0, 0, 0, :, :, :]
     print(image[0, :, :].shape)
-    moment_1 = np.zeros(image[0, :, :].shape)
+    # moment_1 = np.zeros(image[0, :, :].shape)
     v_max = 8.
     vs = np.linspace(-v_max, v_max, image.shape[0])
 
-    for i in range(0, image.shape[0]):
-        moment_1 += image[i, :, :]*vs[i]
-        print(vs[i])
+    moment_1 = simps(image, vs, axis=1)
+
+    # for i in range(0, image.shape[0]):
+    #     moment_1 += image[i, :, :]*vs[i]
+    #     print(vs[i])
     image = moment_1
     remove_centre_image(image, 1)
     # image = np.ndarray.flatten(image)

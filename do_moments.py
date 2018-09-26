@@ -70,7 +70,7 @@ if __name__ == "__main__":
     print(type(conv_image))
     print(conv_image.shape)
     plt.figure(figsize=(8, 8))
-    plt.imshow(conv_image, cmap='gist_ncar')
+    plt.imshow(conv_image, cmap='gist_ncar', interpolation='bicubic')
     plt.tight_layout()
     plt.savefig(args.save)
     # print(image.info())

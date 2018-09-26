@@ -62,7 +62,7 @@ if __name__ == "__main__":
     conv_image = convolve_image(image, 2.)
     print(type(conv_image))
     print(conv_image.shape)
-    plt.imshow(conv_image, cmap='rainbow')
+    plt.imshow(conv_image, cmap='gist_ncar')
     plt.tight_layout()
     plt.savefig(args.save)
     # print(image.info())

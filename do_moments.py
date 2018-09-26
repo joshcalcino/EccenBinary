@@ -46,7 +46,7 @@ if __name__ == "__main__":
     print(type(image))
     print(image.shape)
     image = image[0, 0, 0, :, :, :]
-    moment_1 = []
+    moment_1 = np.zeros(image.shape[0, :, :])
     v_max = 8.
     vs = np.linspace(-v_max, v_max, image.shape[0])
 

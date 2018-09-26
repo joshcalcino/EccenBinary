@@ -51,7 +51,7 @@ if __name__ == "__main__":
     vs = np.linspace(-v_max, v_max, image.shape[0])
 
     for i in range(0, image.shape[0]):
-        moment_1 += image[i, :, :]*vs
+        moment_1 += image[i, :, :]*vs[i]
     image = moment_1
     remove_centre_image(image, 2)
     # image = np.ndarray.flatten(image)

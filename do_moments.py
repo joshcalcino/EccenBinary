@@ -45,8 +45,15 @@ if __name__ == "__main__":
     image = load_fits(args.filename)
     print(type(image))
     print(image.shape)
-    image = image[0, 0, 0, :, :]
-    remove_centre_image(image, 150)
+    image = image[0, 0, 0, :, :, :]
+    moment_1 = []
+    v_max = 8.
+    vs = np.linspace(-v_max, v_max, image.shape[0])
+
+    for i in range(0, image.shape[0]):
+        moment_1 += image[i, :, :]*vs
+    image = moment_1
+    remove_centre_image(image, 2)
     # image = np.ndarray.flatten(image)
     print(image.shape)
     # Block out central pixel..

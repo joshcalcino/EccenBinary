@@ -53,15 +53,16 @@ if __name__ == "__main__":
 
     for i in range(0, image.shape[0]):
         moment_1 += image[i, :, :]*vs[i]
+        print(vs[i])
     image = moment_1
-    remove_centre_image(image, 2)
+    remove_centre_image(image, 1)
     # image = np.ndarray.flatten(image)
     print(image.shape)
     # Block out central pixel..
     conv_image = convolve_image(image, 2.)
     print(type(conv_image))
     print(conv_image.shape)
-    plt.imshow(conv_image, cmap='gist_heat')
+    plt.imshow(conv_image, cmap='rainbow')
     plt.tight_layout()
     plt.savefig(args.save)
     # print(image.info())

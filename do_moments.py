@@ -57,20 +57,28 @@ if __name__ == "__main__":
         dimage[i] = image[i, :, :]*vs[i]
 
     moment_1 = simps(dimage, vs, axis=0)
-
+    moment_0 = simps(image, vs, axis=0)
+    print(np.min(moment_1), np.max(moment_1))
     # for i in range(0, image.shape[0]):
     #     moment_1 += image[i, :, :]*vs[i]
     #     print(vs[i])
+
     image = moment_1
     remove_centre_image(image, 1)
     # image = np.ndarray.flatten(image)
-    print(image.shape)
+    # print(image.shape)
     # Block out central pixel..
-    conv_image = convolve_image(image, 2.)
-    print(type(conv_image))
-    print(conv_image.shape)
+    # conv_image = convolve_image(image, 2.)
+    # print(type(conv_image))
+    # print(conv_image.shape)
     plt.figure(figsize=(8, 8))
-    plt.imshow(conv_image, cmap='gist_ncar', interpolation='bicubic')
+    plt.imshow(moment_1, cmap='gist_ncar', interpolation='bicubic')
     plt.tight_layout()
     plt.savefig(args.save)
+
+    plt.figure(figsize=(8, 8))
+    plt.imshow(moment_0, cmap='gist_ncar', interpolation='bicubic')
+    plt.tight_layout()
+    plt.savefig('M0' + args.save)
+
     # print(image.info())
